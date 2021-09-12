@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("img/pexels3.jpg") no-repeat center center fixed;
+}
+p {
+  margin-top: 30px;
+}
+input {
+  text-align: center;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 50px;
+}
+
+.form-control {
+  width: 300px;
+}
+.btn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+.layout {
+  position: relative;
+  text-align: left;
+  max-width: 600px;
+  padding: 60px;
+
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  color: rgb(255, 254, 254);
+}
+.layout-footer-Tuesday {
+  position: relative;
+  max-width: 200px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  color: rgb(255, 254, 254);
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
+.underH1 {
+  font-size: 20px;
+  line-height: 0%;
+}
+.codedBy {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.col {
+  padding: 15px;
+}
+#celsius {
+  text-decoration: none;
+}
+#farenheit {
+  text-decoration: none;
+}
