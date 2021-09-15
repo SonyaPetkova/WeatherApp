@@ -17,26 +17,20 @@ function cityInput(event) {
   let apiKey = "34a4206d301517fba52add27cb8eade5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(inputTemp);
+  axios.get(apiUrl).then(showTime);
 }
 searchCity.addEventListener("submit", cityInput);
 console.log(searchCity);
 
-function showTime() {
+function showTime(timestamp) {
   let currentTime = document.querySelector("#current-time");
   now = new Date();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   let day = days[now.getDay()];
   let hour = now.getHours();
   let minutes = now.getMinutes();
-  currentTime.innerHTML = `${day} ${hour}:${minutes}`;
+  let month = now.getMonth();
+  currentTime.innerHTML = `${day}, ${hour}:${minutes}, ${month}`;
 }
 searchCity.addEventListener("submit", showTime);
 
@@ -83,6 +77,7 @@ function showPosition(position) {
   console.log(apiUrl);
   axios.get(apiUrl).then(showTemp);
   axios.get(apiUrl).then(showCity);
+  axios.get(apiUrl).then(showTime);
 }
 
 navigator.geolocation.getCurrentPosition(showPosition);
