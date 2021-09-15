@@ -1,5 +1,12 @@
 let searchCity = document.querySelector("#search-city");
 
+function inputTemp(response) {
+  let temp = Math.round(response.data.main.temp);
+  let tempNew = document.querySelector("#currentTemp");
+  tempNew.innerHTML = temp;
+  console.log(tempNew);
+}
+
 function cityInput(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -7,6 +14,9 @@ function cityInput(event) {
   let cityNew = document.querySelector("#city-new");
   cityNew.innerHTML = cityInput;
   console.log(cityNew);
+  let apiKey = "34a4206d301517fba52add27cb8eade5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(inputTemp);
 }
 searchCity.addEventListener("submit", cityInput);
 console.log(searchCity);
