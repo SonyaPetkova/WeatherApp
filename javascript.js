@@ -24,13 +24,30 @@ console.log(searchCity);
 
 function showTime(timestamp) {
   let currentTime = document.querySelector("#current-time");
+  let currentHour = document.querySelector("#current-time-hour");
   now = new Date();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let months = [
+    "Jan",
+    "Feb",
+    "March",
+    "April",
+    "Mai",
+    "June",
+    "July",
+    "August",
+    "Sept",
+    "Okt",
+    "Nov",
+    "Dec",
+  ];
   let day = days[now.getDay()];
   let hour = now.getHours();
   let minutes = now.getMinutes();
-  let month = now.getMonth();
-  currentTime.innerHTML = `${day}, ${hour}:${minutes}, ${month}`;
+  let date = now.getDate();
+  let month = months[now.getMonth()];
+  currentTime.innerHTML = `${day}, ${month} ${date}`;
+  currentHour.innerHTML = `Current time: ${hour}:${minutes} h.`;
 }
 searchCity.addEventListener("submit", showTime);
 

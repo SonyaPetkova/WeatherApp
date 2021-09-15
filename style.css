@@ -61,3 +61,7 @@ h1 {
 #farenheit {
   text-decoration: none;
 }
+
+#current-time {
+  margin-bottom: 25px;
+}
