@@ -4,7 +4,12 @@ function inputTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let tempNew = document.querySelector("#currentTemp");
   tempNew.innerHTML = temp;
+  let iconElement = document.querySelector("#icon");
   console.log(tempNew);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function cityInput(event) {
@@ -14,9 +19,11 @@ function cityInput(event) {
   let cityNew = document.querySelector("#city-new");
   cityNew.innerHTML = cityInput;
   console.log(cityNew);
+
   let apiKey = "34a4206d301517fba52add27cb8eade5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(inputTemp);
+
   axios.get(apiUrl).then(showTime);
 }
 searchCity.addEventListener("submit", cityInput);
